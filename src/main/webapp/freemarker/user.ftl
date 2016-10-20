@@ -6,6 +6,6 @@
 	</head>
 	<body>
 		<p>UserName : ${userName}</p>
-		<p>Password : ${password}</p>
+		<p>UserId : ${userId}</p>
 	</body>
-</html>
+</html>  
