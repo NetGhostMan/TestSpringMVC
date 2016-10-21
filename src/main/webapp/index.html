@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.4/css/bootstrap.css"
+	rel="stylesheet">
 </head>
 <body>
-	<form action="api/login" method="get">
-		username: <input name="userName" type="text"> password: <input
-			name="password" type="password"> <input value="登陆"
-			type="submit">
-	</form>
+	<ul>
+		<li><a href="api/user.html">后缀名不同返回的内容不同.html</a></li>
+		<li><a href="api/user.json">后缀名不同返回的内容不同.json</a></li>
+		<li><a href="api/user">报头不懂返回的内容不同test/html</a></li>
+		<li><a href="api/userjson">报头不懂返回的内容不同application/json</a></li>
+	</ul>
 </body>
 </html>

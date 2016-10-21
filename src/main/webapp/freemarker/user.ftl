@@ -7,17 +7,19 @@
 	rel="stylesheet">
 	</head>
 	<body>
-		<table border="1">
-			<tr>
-				<td>用户ID</td>
-				<td>用户名</td>
-			</tr>
-			<#list userList as user>
-			<tr>
-				<td>${user.userName}</td>
-				<td>${user.userId}</td>
-			</tr>
-			</#list>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tr>
+					<td>用户ID</td>
+					<td>用户名</td>
+				</tr>
+				<#list userList as user>
+				<tr>
+					<td>${user.userName}</td>
+					<td>${user.userId}</td>
+				</tr>
+				</#list>
+			</table>
+			</div>
 	</body>
 </html>  
