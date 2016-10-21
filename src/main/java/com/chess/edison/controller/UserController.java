@@ -16,11 +16,30 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping("user")
-	public String login(ModelMap map){
-		List<User> users = userDAO.getUsers();
-		map.addAttribute("users", users);
-		return "user";
-		
+	private void addmap(ModelMap map) {
+		List<User> userList = userDAO.getUsers();
+		map.addAttribute("userList", userList);
 	}
+	
+	@RequestMapping("user.html")
+	public String loginHtml(ModelMap map){
+		addmap(map);
+		return "user";
+	}
+	@RequestMapping("user.json")
+	public String loginJson(ModelMap map){
+		addmap(map);
+		return "userJson";
+	}
+	@RequestMapping(value="user",produces="text/html")
+	public String loginHtml1(ModelMap map){
+		addmap(map);
+		return "user";
+	}
+	@RequestMapping(value="userjson",produces="application/json")
+	public String loginJson1(ModelMap map){
+		addmap(map);
+		return "userJson";
+	}
+	
 }

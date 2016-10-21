@@ -3,18 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
    	   http://www.springframework.org/schema/beans/spring-beans.xsd
    	   http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
-     
+       http://mybatis.org/schema/mybatis-spring
+       http://mybatis.org/schema/mybatis-spring.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
 	<!-- 设置使用注解的类所在的jar包 -->
 	<context:component-scan base-package="com.*" />
 	<mvc:annotation-driven></mvc:annotation-driven>
-	
+	<mybatis:scan base-package="com.chess.edison.*"/>
+
 	<!-- Spring JDBC -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${DRIVER}"></property>
@@ -22,5 +29,5 @@
 		<property name="username" value="${ed}"></property>
 		<property name="password" value="${PASSWORD}"></property>
 	</bean>
-	<context:property-placeholder location="db.properties" />
+	<context:property-placeholder location="classpath:db.properties" />
 </beans>

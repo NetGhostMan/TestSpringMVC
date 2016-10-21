@@ -3,12 +3,11 @@ package com.chess.edison.DAO.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 
 import com.chess.edison.DAO.UserDAO;
 import com.chess.edison.meta.User;
 
-@Repository
+
 public class TestUserDAO implements UserDAO{
 
 	@Override

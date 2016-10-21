@@ -12,7 +12,7 @@
 				<td>用户ID</td>
 				<td>用户名</td>
 			</tr>
-			<#list users as user>
+			<#list userList as user>
 			<tr>
 				<td>${user.userName}</td>
 				<td>${user.userId}</td>
