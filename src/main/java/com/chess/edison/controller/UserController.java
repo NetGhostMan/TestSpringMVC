@@ -1,5 +1,7 @@
 package com.chess.edison.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,9 +18,8 @@ public class UserController {
 	
 	@RequestMapping("user")
 	public String login(ModelMap map){
-		User user = userDAO.getUser();
-		map.addAttribute("userId",user.getUserId());
-		map.addAttribute("userName",user.getUserName());
+		List<User> users = userDAO.getUsers();
+		map.addAttribute("users", users);
 		return "user";
 		
 	}

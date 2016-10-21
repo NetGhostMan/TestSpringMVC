@@ -2,18 +2,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
    	   http://www.springframework.org/schema/beans/spring-beans.xsd
    	   http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd   
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://mybatis.org/schema/mybatis-spring
-       http://mybatis.org/schema/mybatis-spring.xsd">
-
+     
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
+	<!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.*" />
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- Spring JDBC -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${DRIVER}"></property>
+		<property name="url" value="${DB_URL}"></property>
+		<property name="username" value="${ed}"></property>
+		<property name="password" value="${PASSWORD}"></property>
+	</bean>
+	<context:property-placeholder location="db.properties" />
 </beans>
